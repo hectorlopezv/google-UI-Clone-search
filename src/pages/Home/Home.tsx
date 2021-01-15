@@ -3,6 +3,7 @@ import './Home.less';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import AppsIcon from '@material-ui/icons/Apps';
+import Search from '../../components/Search/Search';
 
 interface Props {
     
@@ -20,26 +21,25 @@ export default class Home extends Component<Props, State> {
                 <div className="home__header">
                 
                         <div className=" home__headerLeft">
-                            {/*Link*/}
-                            <Link to='/about'>about</Link>
+                            <Link to='/about'>About</Link>
                             <Link to='/store'>Store</Link>
-                            {/*Link*/}
                         </div>
 
                         <div className="home__headerRight">
-                            {/*Link*/}
                             <Link to='/gmail'>Gmail</Link>
                             <Link to='/images'>Images</Link>
-                            {/*Link*/}
-                            {/*Icon */}
                             <AppsIcon />
                             <Avatar />
                         </div>
-
                 </div>
                 
                 <div className="home__body">
-                    Body
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google image"/>
+
+                    <div className="home__inputContainer">
+                        {/*Serach*/}
+                        <Search />
+                    </div>
                 </div>
             </div>
         )
