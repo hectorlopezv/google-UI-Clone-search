@@ -10,7 +10,7 @@ import {
 import Search from './pages/Search/Search';
 
 interface Props {
-  
+
 }
 
 interface State {
@@ -32,7 +32,7 @@ export default class App extends Component<Props, State> {
           <Switch>
             
             <Route exact path="/search">
-              <Search />
+              <Search hidden={false}/>
             </Route>
             
             <Route exact path="/">
