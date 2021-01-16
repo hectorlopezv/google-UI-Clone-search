@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import Search from './pages/Search/Search';
+import { StateContext } from './store';
 
 interface Props {
 
@@ -32,7 +33,12 @@ export default class App extends Component<Props, State> {
           <Switch>
             
             <Route exact path="/search">
-              <Search />
+            <StateContext.Consumer>
+              {(context: any) => (
+                <Search value={context} />
+              )}
+				</StateContext.Consumer>
+              
             </Route>
             
             <Route exact path="/">

@@ -4,9 +4,9 @@ import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 import AppsIcon from '@material-ui/icons/Apps';
 import Search from '../../components/Search/Search';
+import { StateContext } from '../../store';
 
 interface Props {
-    
 }
 interface State {
     
@@ -37,8 +37,7 @@ export default class Home extends Component<Props, State> {
                     <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="google image"/>
 
                     <div className="home__inputContainer">
-                        {/*Serach*/}
-                        <Search hidden={true}/>
+                         <Search hidden={false} />
                     </div>
                 </div>
             </div>

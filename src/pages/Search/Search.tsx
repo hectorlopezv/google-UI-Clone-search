@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 import './Search.less';
+import SearchComponent from '../../components/Search/Search';
+import useGoogleSearchEngine from '../../hooks/useGoogle';
 
-interface Props {
-    
+export interface SearchProps {
+    value: any;
 }
-interface State {
-    
-}
+ 
+const Search: React.FC<SearchProps> = ({value, ...props}) => {
+    const [{ term = ''}, dispatch] = value;
+    const data = useGoogleSearchEngine(term);
+    console.log(data);
+    console.log('este es el term en la pagina de SEARCH', term);
+    return (
+        <div className="searchPage">
+            <SearchComponent hidden={true}/>
+            <div className="searchPage__header">
 
-export default class Search extends Component<Props, State> {
-    state = {}
-
-    render() {
-        return (
-            <div>
-                Search
             </div>
-        )
-    }
+            
+            <div className="searchPage__results">
+
+            </div>
+        </div>
+    )
 }
+ 
+export default Search;
