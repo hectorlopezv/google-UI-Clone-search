@@ -32,7 +32,7 @@ export default class App extends Component<Props, State> {
           <Switch>
             
             <Route exact path="/search">
-              <Search hidden={false}/>
+              <Search />
             </Route>
             
             <Route exact path="/">

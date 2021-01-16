@@ -7,14 +7,15 @@ import { withRouter, RouteComponentProps  } from 'react-router-dom';
 
 
 interface Props {
+   
+    children?: React.ReactNode;
     hidden: boolean;
-    children?: React.ReactNode
 }
 interface State {
     
 }
 
-class Search extends Component<Props, State> {
+class Search extends Component<RouteComponentProps & Props & State> {
 
     state = {
         value: ''
@@ -23,7 +24,7 @@ class Search extends Component<Props, State> {
     search = (event: any) => {
         console.log('hector');
         event.preventDefault();
-        //this.props.history.push('/search');
+        this.props.history.push('/search');
     }
     
     inputHandler= (event: any) => {
@@ -38,10 +39,19 @@ class Search extends Component<Props, State> {
                     <input type="text" value={this.state.value} onChange={this.inputHandler}/>
                     <MicIcon fontSize="large"/>
                 </div>
+
+                {!this.props.hidden ? (
+                    <div className="search__buttons">
+                        <Button type="submit" onClick={this.search} variant="outlined">Google Search</Button>
+                        <Button variant="outlined">Feeling Lucky</Button>
+                    </div>
+                ): (
                 <div className="search__buttons">
-                    <Button type="submit" onClick={this.search} variant="outlined">Google Search</Button>
-                    <Button variant="outlined">Feeling Lucky</Button>
-                </div>)
+                    <Button className="search__buttonsHidden" type="submit" onClick={this.search} variant="outlined">Google Search</Button>
+                    <Button className="search__buttonsHidden" variant="outlined">Feeling Lucky</Button>
+                </div>
+            )}
+
 
 
             </form>
@@ -49,5 +59,5 @@ class Search extends Component<Props, State> {
     }
 }
 
-export default Search
+export default withRouter(Search)
 

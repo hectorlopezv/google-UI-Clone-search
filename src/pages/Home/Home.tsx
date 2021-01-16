@@ -38,7 +38,7 @@ export default class Home extends Component<Props, State> {
 
                     <div className="home__inputContainer">
                         {/*Serach*/}
-                        <Search hidden={false}/>
+                        <Search hidden={true}/>
                     </div>
                 </div>
             </div>
