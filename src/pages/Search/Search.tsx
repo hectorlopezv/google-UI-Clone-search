@@ -78,6 +78,9 @@ const Search: React.FC<SearchProps> = ({value, ...props}) => {
                         {data?.items?.map((item: any) => {
                             <div className="searchPage__resultsList">
                                 <a href={item.link} >
+                                    {item.pagemap?.cse_image?.length > 0 && item.pagemap.cse_image[0]?.src && (
+                                        <img src={item.pagemap?.cse_image[0]?.src} className="searchPage__resultsImage" alt="result Image"/>
+                                    )}
                                     {item.displayLink}
                                 </a>
                                 <a className="searchPage__resultsTitle" href={item.link}>
