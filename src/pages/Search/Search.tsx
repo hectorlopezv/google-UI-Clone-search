@@ -17,7 +17,8 @@ export interface SearchProps {
  
 const Search: React.FC<SearchProps> = ({value, ...props}) => {
     const [{ term = ''}, dispatch] = value;
-    const data:any = useGoogleSearchEngine(term);
+    const data:any = useGoogleSearchEngine(term).data;
+    console.log('el data', data);
     return (
         <div className="searchPage">
            
@@ -76,7 +77,8 @@ const Search: React.FC<SearchProps> = ({value, ...props}) => {
                         </p>
 
                         {data?.items?.map((item: any) => {
-                            <div className="searchPage__resultsList">
+                            return(
+                                <div className="searchPage__resultsList">
                                 <a href={item.link} >
                                     {item.pagemap?.cse_image?.length > 0 && item.pagemap.cse_image[0]?.src && (
                                         <img src={item.pagemap?.cse_image[0]?.src} className="searchPage__resultsImage" alt="result Image"/>
@@ -89,8 +91,9 @@ const Search: React.FC<SearchProps> = ({value, ...props}) => {
                                 <p className="searchPage__resultsSnippet">
                                     {item.snippet}
                                 </p>
-
                             </div>
+                            );
+                            
                         })}
                 </div>
             )}
