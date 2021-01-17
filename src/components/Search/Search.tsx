@@ -25,6 +25,7 @@ const Search: React.FC<SearchProps> = ({...props}) => {
             type: actionTypes.SET_SEARCH_TERM,
             term: term_
         });
+        setterm('');
         history.push('/search');
     }
     
